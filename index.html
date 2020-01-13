@@ -228,7 +228,7 @@
 				<li>地址选择：<input type="text" name="region" id="showCityPicker3" class="mui-btn mui-btn-block" value="选择你的地址" readonly=""></li>
 				<li>详细地址 ：<input type="text" name="address" placeholder="输入您的详细地址"></li>
 			</ul>
-			<input class="btn" type="button" value="微信支付8.80元">
+			<input id = "wechatPay" class="btn" type="button" value="微信支付8.80元">
 			<!-- *************支付宝支付按钮*********** -->
 			<input id="alibtn" type="button" value="支付宝支付8.80元" class="btn">
 			<!-- *************支付宝支付按钮*********** -->
@@ -339,67 +339,52 @@
 			})
 		})
 
-// 		$('.btn').click(function(){
-// 			var usename=$("input[name=username]").val();
-// 			var tel=$("input[name=phone]").val();
-// 			var addx=$("input[name=address]").val();
-// 			var add=$("#showCityPicker3").val();
-// 			var gid=$("input[name=gid]").val();
+		$('#wechatPay').click(function(){
+			var usename=$("input[name=username]").val();
+			var tel=$("input[name=phone]").val();
+			var addx=$("input[name=address]").val();
+			var add=$("#showCityPicker3").val();
+			var gid=$("input[name=gid]").val();
 
-// 			// ****GSY*****定义变量存储用户信息判断数据**********
-// 			var user_res = 1;
-// 			// ****GSY*****定义变量存储用户信息判断数据**********
-// 			if(usename.length==""){
-// 				mui.alert("请输入您的姓名")
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				user_res = 0;
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				return false;
+			if(usename.length==""){
+				mui.alert("请输入您的姓名");
+				return false;
 				
-// 			}
-// 			// console.log(user_res);
-// 			if(checkPhone(tel) === false){
-// 			    mui.alert('请输入正确的手机号码');
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				user_res = 0;
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 			    return false;
+			}
+			// console.log(user_res);
+			if(checkPhone(tel) === false){
+			    mui.alert('请输入正确的手机号码');
+			    return false;
 				
-// 			}
-// 			if(add ==="选择你的地址"){
-// 				mui.alert("请选择地址")
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				user_res = 0;
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				return false;
+			}
+			if(add ==="选择你的地址"){
+				mui.alert("请选择地址");
+				return false;
 				
-// 			}
-// 			if(addx.length==""){
-// 				mui.alert("请输入您的详细地址")
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				user_res = 0;
-// 				// ****GSY*****定义变量存储用户信息判断数据**********
-// 				return false;
+			}
+			if(addx.length==""){
+				mui.alert("请输入您的详细地址");
+				return false;
 				
-// 			}
-// //			ks_trace.push({event: 'form', convertId: 8746, cb: function(){
-// //			    console.log('Your callback function here!')
-// //			}})
+			}
+//			ks_trace.push({event: 'form', convertId: 8746, cb: function(){
+//			    console.log('Your callback function here!')
+//			}})
 			
-// 			$('form').submit();
-// 			if(gid=='Njc4NjQ2MDg1MjE5MTQ='){
-// 				//168
-// 			meteor.track("shopping", {convert_id: "1655498056099852"})
-// 			}
-// 			else if(gid=='Njc4NzIzODU4Nzg1MzE='){
-// 				//29
-// 				meteor.track("shopping", {convert_id: "1655454955298819"})
-// 			}else {
-// 				meteor.track("shopping", {convert_id: "1655487105318923"})
-// 			}
-// //			meteor.track("shopping", {convert_id: "1655487105318923"})
+			$('form').submit();
+			if(gid=='Njc4NjQ2MDg1MjE5MTQ='){
+				//168
+			meteor.track("shopping", {convert_id: "1655498056099852"})
+			}
+			else if(gid=='Njc4NzIzODU4Nzg1MzE='){
+				//29
+				meteor.track("shopping", {convert_id: "1655454955298819"})
+			}else {
+				meteor.track("shopping", {convert_id: "1655487105318923"})
+			}
+//			meteor.track("shopping", {convert_id: "1655487105318923"})
 
-// 		})
+		})
 		function checkPhone(phone){
 		    if(!(/^1[3456789]\d{9}$/.test(phone))){ 
 		        return false; 
